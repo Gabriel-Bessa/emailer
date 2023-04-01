@@ -1,0 +1,14 @@
+{
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "ES6",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": false,
+    "outDir": "dist",
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
