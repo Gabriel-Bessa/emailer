@@ -2,7 +2,6 @@ import {Controller, FastifyToken, Inject, POST} from "@fastify-resty/core";
 import {FastifyInstance, FastifyReply, FastifyRequest} from "fastify";
 import {EmailService} from "../services/email.service";
 import {EmailBasic, EmailBasicSchema} from "../domain/dto/email.basic.model";
-import {Security} from "../config/security.config";
 
 @Controller("/email")
 export class EmailController {
@@ -14,9 +13,7 @@ export class EmailController {
     @POST('/send-basic', {schema: EmailBasicSchema})
     async sendBasic(request: FastifyRequest<{Body: EmailBasic}>, reply: FastifyReply) {
         this.instance.log.debug("[EmailController::send] Rest request to send basic email")
-        const customer = Security.getPrincipal(request);
-        const body: EmailBasic = request.body;
-        this.service.sendGenericEmail(customer, body);
+        this.service.sendBasicEmail(request)
         return {a : "a"}
     }
 

@@ -3,7 +3,7 @@ import {Template} from "../../domain/dto/template.model";
 import {EmailBasic} from "../../domain/dto/email.basic.model";
 import {Customer} from "../../domain/schemas/customer.schema";
 
-export function helloTemplate(customer: Customer, email: EmailBasic) {
+export function basicTemplate(customer: Customer, email: EmailBasic) {
     const template : Template = {
         customer: customer,
         title: email.title,
