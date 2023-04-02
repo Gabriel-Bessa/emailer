@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+  rabbitmq:
+    image: rabbitmq:3.7-management
+    environment:
+      TZ: "America/Sao_Paulo"
+      LANG: "pt_BR.UTF-8"
+      LANGUAGE: "pt_BR:pt"
+    ports:
+      - 15672:15672
+      - 5672:5672
